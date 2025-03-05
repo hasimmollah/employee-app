@@ -1,0 +1,48 @@
+<mat-dialog-content>
+  <p>Employee Role</p>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+      class="mat-elevation-z8">
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let role">
+          <mat-radio-button (change)="selectRole(role)"></mat-radio-button>
+        </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="roleId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Role Id">
+          Role Id
+          <span (click)="toggleSearch('roleId')">🔍</span>
+          <input *ngIf="showSearch.roleId" type="text" [(ngModel)]="filters.roleId" (keyup)="applyFilter()"
+            placeholder="Search columns" #input>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.roleId}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="roleName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Role Name">
+          Role Name
+          <span (click)="toggleSearch('roleName')">🔍</span>
+          <input *ngIf="showSearch.roleName" type="text" [(ngModel)]="filters.roleName" (keyup)="applyFilter()"
+            placeholder="Search columns" #input>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="sendData()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

@@ -1,0 +1,24 @@
+<!-- <div class="row">
+    <div class="col-12" text-center>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" (click)="showComponent('role')"
+                [ngClass]="currentComponent == 'role'? 'btn-success':'btn-primary'">Role</button>
+            <button type="button" class="btn btn-primary" (click)="showComponent('designation')"
+                [ngClass]="currentComponent == 'designation'? 'btn-success':'btn-primary'">Designation</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6" *ngIf="currentComponent == 'role'">
+        <app-role></app-role>
+    </div>
+    <div class="col-6" *ngIf="currentComponent == 'designation'">
+        <app-designation></app-designation>
+    </div>
+
+
+</div> -->
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+    <mat-tab label="Role"><app-role></app-role></mat-tab>
+    <mat-tab label="Designation"> <app-designation></app-designation></mat-tab>
+</mat-tab-group>

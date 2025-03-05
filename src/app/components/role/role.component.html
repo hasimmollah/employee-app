@@ -1,0 +1,31 @@
+<div class="row">
+    @if (spinner) {
+    <div class="col-12">
+        <app-spinner></app-spinner>
+    </div>
+    } @else {
+        <div class="col-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>SL #</th>
+                        <th>Role Id</th>
+                        <th>Role Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let role of roleList; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{role.roleId}}</td>
+                        <td>{{role.role}}</td>
+    
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+
+    }
+
+    
+</div>
